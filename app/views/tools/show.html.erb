@@ -2,14 +2,17 @@
   <div class="row">
     <div class="col-sm-6 offset-3 p-4 bg-white rounded">
       <h2><%= @tool.name.capitalize %></h2>
-
       <p><%= @tool.description %></p>
       <p><%= @tool.category %></p>
       <p>CHF: <%= @tool.price %></p>
       <p><%= @tool.user.email %></p>
+      <%= cl_image_tag @tool.photo.key %>
 
       <div>
         <%= link_to "Back to equipment", tools_path, class: "btn btn-primary my-3"%>
+        <% if policy(@tool).edit? %>
+          <%= link_to 'Edit', edit_tool_path(@tool) %>
+        <% end %>
       </div>
     </div>
   </div>

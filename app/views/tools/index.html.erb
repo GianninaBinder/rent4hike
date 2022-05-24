@@ -2,20 +2,32 @@
   <br>
   <h2 align="center"><strong>Check our equipment</strong></h2>
 
-  <ul style="list-style: none;" class="mb-3 p-0">
-    <% @tools.each do |tool|%>
-      <li>
-        <%=link_to tool.name, tool_path(tool) %>
-        <%= tool.name%>
-        <%= tool.category%>
-        <%= tool.description%>
-        <%= tool.price%>
-      </li>
-    <%end%>
-  </ul>
-  <div  align="center">
+
+<ul style="list-style: none;" class="mb-3 p-0">
+  <% @tools.each do |tool|%>
+    <li>
+      <%=link_to tool.name, tool_path(tool) %>
+      <% if !tool.photo.key.nil? %>
+        <%=cl_image_tag tool.photo.key, width: 300, crop: :fill %>
+      <%end%>
+      <%= tool.name%>
+      <%= tool.category%>
+      <%= tool.description%>
+      <%= tool.price%>
+    </li>
+    <% if policy(tool).edit? %>
+      <%= link_to "Edit", edit_tool_path(tool) %>
+    <% end %>
+    <% if policy(tool).destroy? %>
+      <%= link_to 'Delete', tool, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <%end%>
+</ul>
+
+<div  align="center">
+  <% if policy(Tool).create? %>
     <%= link_to "Add equipment", new_tool_path, class: "btn-ghost link" %>
     <br>
     <br>
-  </div>
+  <% end %>
 </div>

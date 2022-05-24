@@ -1,3 +1,4 @@
+
 <div class="container mt-3 mb-3 ">
   <div class="row">
     <div class="col-sm-6 offset-3 p-4 bg-white rounded">
@@ -7,6 +8,7 @@
         <%= f.input :category %>
         <%= f.input :description %>
         <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit "Add equipment", class: "btn btn-primary" %>
       <% end %>
       <div class="my-3">
@@ -15,3 +17,4 @@
     </div>
   </div>
 </div>
+
