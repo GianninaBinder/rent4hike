@@ -12,7 +12,15 @@
       <%= tool.description%>
       <%= tool.price%>
     </li>
+    <% if policy(tool).edit? %>
+      <%= link_to "Edit", edit_tool_path(tool) %>
+    <% end %>
+    <% if policy(tool).destroy? %>
+      <%= link_to 'Delete', tool, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   <%end%>
 </ul>
 
-<%= link_to "Add new equipment", new_tool_path, class: "btn-ghost"%>
+<% if policy(Tool).create? %>
+  <%= link_to "Add new equipment", new_tool_path, class: "btn-ghost"%>
+<% end %>
