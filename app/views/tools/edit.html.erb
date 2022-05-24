@@ -1,0 +1,10 @@
+<%= link_to "Go back to the equipment", tools_path, class: "btn btn-ghost" %>
+
+<h3 class="my-2"> Edit equipment</h3>
+  <%= simple_form_for [ @tool ] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.submit "Save the changes", class: "btn btn-primary" %>
+  <% end %>
