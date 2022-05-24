@@ -4,6 +4,9 @@
   <% @tools.each do |tool|%>
     <li>
       <%=link_to tool.name, tool_path(tool) %>
+      <% if !tool.photo.key.nil? %>
+        <%=cl_image_tag tool.photo.key, width: 300, crop: :fill %>
+      <%end%>
       <%= tool.name%>
       <%= tool.category%>
       <%= tool.description%>
