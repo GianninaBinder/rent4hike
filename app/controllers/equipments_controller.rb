@@ -1,2 +1,0 @@
-class EquipmentsController < ApplicationController
-end

@@ -1,0 +1,15 @@
+<h2>All the Equipment available</h2>
+
+<ul>
+  <% @tools.each do |tool|%>
+    <li>
+      <%=link_to tool.name, tool_path(tool) %>
+      <%= tool.name%>
+      <%= tool.category%>
+      <%= tool.description%>
+      <%= tool.price%>
+    </li>
+  <%end%>
+</ul>
+
+<%= link_to "Add new equipment", new_tool_path, class: "btn-ghost"%>

@@ -1,0 +1,11 @@
+<h2><%= @tool.name.capitalize %></h2>
+
+<p><%= @tool.description %></p>
+<p><%= @tool.category %></p>
+<p>CHF:<%= @tool.price %></p>
+<p><%= @tool.user.email %></p>
+
+
+<div>
+  <%= link_to "Go back to tools", tools_path, class: "btn btn-primary my-3"%>
+</div>
