@@ -1,15 +1,21 @@
-<h2>All the Equipment available</h2>
+<div class="container my-2 bg-white">
+  <br>
+  <h2 align="center"><strong>Check our equipment</strong></h2>
 
-<ul>
-  <% @tools.each do |tool|%>
-    <li>
-      <%=link_to tool.name, tool_path(tool) %>
-      <%= tool.name%>
-      <%= tool.category%>
-      <%= tool.description%>
-      <%= tool.price%>
-    </li>
-  <%end%>
-</ul>
-
-<%= link_to "Add new equipment", new_tool_path, class: "btn-ghost"%>
+  <ul style="list-style: none;" class="mb-3 p-0">
+    <% @tools.each do |tool|%>
+      <li>
+        <%=link_to tool.name, tool_path(tool) %>
+        <%= tool.name%>
+        <%= tool.category%>
+        <%= tool.description%>
+        <%= tool.price%>
+      </li>
+    <%end%>
+  </ul>
+  <div  align="center">
+    <%= link_to "Add equipment", new_tool_path, class: "btn-ghost link" %>
+    <br>
+    <br>
+  </div>
+</div>

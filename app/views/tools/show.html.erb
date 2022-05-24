@@ -1,11 +1,16 @@
-<h2><%= @tool.name.capitalize %></h2>
+<div class="container mt-3 mb-3 ">
+  <div class="row">
+    <div class="col-sm-6 offset-3 p-4 bg-white rounded">
+      <h2><%= @tool.name.capitalize %></h2>
 
-<p><%= @tool.description %></p>
-<p><%= @tool.category %></p>
-<p>CHF:<%= @tool.price %></p>
-<p><%= @tool.user.email %></p>
+      <p><%= @tool.description %></p>
+      <p><%= @tool.category %></p>
+      <p>CHF: <%= @tool.price %></p>
+      <p><%= @tool.user.email %></p>
 
-
-<div>
-  <%= link_to "Go back to tools", tools_path, class: "btn btn-primary my-3"%>
+      <div>
+        <%= link_to "Back to equipment", tools_path, class: "btn btn-primary my-3"%>
+      </div>
+    </div>
+  </div>
 </div>
