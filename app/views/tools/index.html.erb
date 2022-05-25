@@ -2,6 +2,15 @@
   <br>
   <h2 align="center"><strong>Check our equipment</strong></h2>
 
+  <%= form_tag tools_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Filter by category"
+    %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 
   <ul style="list-style: none;" class="mb-3 p-0">
     <% @tools.each do |tool|%>
