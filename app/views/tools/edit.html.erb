@@ -1,17 +1,19 @@
-<div class="container mt-3 mb-3 ">
-  <div class="row">
-    <div class="col-sm-6 offset-3 p-4 bg-white rounded">
+<div style="background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),url(https://www.galeria-reisen.de/magazin/wp-content/uploads/2021/01/KanadaAdobeStock_295448049.jpeg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-3 p-4 bg-white rounded my-3">
 
-      <h3 class="my-2"> Edit equipment</h3>
-        <%= simple_form_for [ @tool ] do |f| %>
-          <%= f.input :name %>
-          <%= f.input :category %>
-          <%= f.input :description %>
-          <%= f.input :price %>
-          <%= f.submit "Save changes", class: "btn btn-primary" %>
-        <% end %>
-      <div class="my-3">
-        <%= link_to "Back to equipment", tools_path, class: "btn btn-ghost" %>
+        <h3 class="my-2"> Edit equipment</h3>
+          <%= simple_form_for [ @tool ] do |f| %>
+            <%= f.input :name %>
+            <%= f.input :category %>
+            <%= f.input :description %>
+            <%= f.input :price %>
+            <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <% end %>
+        <div class="my-3">
+          <%= link_to "Back to equipment", tools_path, class: "btn btn-ghost" %>
+        </div>
       </div>
     </div>
   </div>
