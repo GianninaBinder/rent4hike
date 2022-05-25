@@ -5,34 +5,31 @@
   <%= form_tag tools_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
     placeholder: "Filter by category"
     %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-  <ul style="list-style: none;" class="mb-3 p-0">
+  <% end %>
 
   <div class="row">
-
     <% @tools.each do |tool|%>
-      <div class="col-lg-4 col-md-4 col-sm-12 card-trip mx-3">
-        <% if !tool.photo.key.nil? %>
-          <%=cl_image_tag tool.photo.key %>
-        <%end%>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%=link_to tool.name.capitalize, tool_path(tool), class:"link" %></h2>
-            <p><%= tool.description%></p>
+      <div class="col-lg-4 col-md-4 col-sm-12 card-trip m-3">
+          <% if !tool.photo.key.nil? %>
+            <%=cl_image_tag tool.photo.key %>
+          <%end%>
+          <%= link_to tool_path(tool), class:"text-decoration-none link" do %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%=tool.name.capitalize %></h2>
+              <p><%= tool.description %></p>
+            </div>
+          <h2 class="card-trip-pricing">CHF <%= tool.price%></h2>
           </div>
-        <h2 class="card-trip-pricing">CHF <%= tool.price%></h2>
-        </div>
+        <% end %>
       </div>
     <%end%>
   </div>
 
   <div>
-    <br>
     <br>
     <% if policy(Tool).create? %>
       <%= link_to "Add equipment", new_tool_path, class: "btn-ghost link" %>
