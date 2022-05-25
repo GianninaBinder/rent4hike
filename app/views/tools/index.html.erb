@@ -11,29 +11,29 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-
   <ul style="list-style: none;" class="mb-3 p-0">
+
+  <div class="row">
+
     <% @tools.each do |tool|%>
-      <li>
-        <%=link_to tool.name, tool_path(tool) %>
+      <div class="col-lg-4 col-md-4 col-sm-12 card-trip mx-3">
         <% if !tool.photo.key.nil? %>
-          <%=cl_image_tag tool.photo.key, width: 300, crop: :fill %>
+          <%=cl_image_tag tool.photo.key %>
         <%end%>
-        <%= tool.name%>
-        <%= tool.category%>
-        <%= tool.description%>
-        <%= tool.price%>
-      </li>
-      <% if policy(tool).edit? %>
-        <%= link_to "Edit", edit_tool_path(tool) %>
-      <% end %>
-      <% if policy(tool).destroy? %>
-        <%= link_to 'Delete', tool, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%=link_to tool.name.capitalize, tool_path(tool), class:"link" %></h2>
+            <p><%= tool.description%></p>
+          </div>
+        <h2 class="card-trip-pricing">CHF <%= tool.price%></h2>
+        </div>
+      </div>
     <%end%>
-  </ul>
+  </div>
 
   <div>
+    <br>
+    <br>
     <% if policy(Tool).create? %>
       <%= link_to "Add equipment", new_tool_path, class: "btn-ghost link" %>
       <br>
