@@ -1,5 +1,5 @@
 class Tool < ApplicationRecord
-  CATEGORIES = ["tents", "footwear", "sleeping bags", "accessoires", "backpacks", "clothing"]
+  CATEGORIES = ["Tents", "Footwear", "Sleeping bags", "Accessoires", "Backpacks", "Clothing"]
   has_one_attached :photo
   belongs_to :user
 
