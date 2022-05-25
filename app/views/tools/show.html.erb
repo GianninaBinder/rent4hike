@@ -1,21 +1,27 @@
-<div class="container mt-3 mb-3 ">
-  <div class="row">
-    <div class="col-sm-6 offset-3 p-4 bg-white rounded">
-      <h2><%= @tool.name.capitalize %></h2>
-      <p><%= @tool.description %></p>
-      <p><%= @tool.category %></p>
-      <p>CHF: <%= @tool.price %></p>
-      <p><%= @tool.user.email %></p>
-      <% if !@tool.photo.key.nil? %>
-        <%=cl_image_tag @tool.photo.key, width: 300, crop: :fill %>
-      <%end%>
 
-      <div>
-        <%= link_to "Back to equipment", tools_path, class: "btn btn-primary my-3"%>
-        <% if policy(@tool).edit? %>
-          <%= link_to 'Edit', edit_tool_path(@tool) %>
-        <% end %>
-      </div>
+<div class="card-product">
+  <% if !@tool.photo.key.nil? %>
+    <%=cl_image_tag @tool.photo.key %>
+  <%end%>
+  <div class="card-product-infos">
+    <div>
+      <h2><%= @tool.name.capitalize %></h2>
     </div>
+    <p><%= @tool.description %></p>
+    <p><strong>Category: </strong><%= @tool.category %></p>
+    <p id="price">Price: <%= @tool.price %>CHF</p>
+    <p><strong>Owner: </strong><%= @tool.user.email %></p>
+
+    <%= link_to "Rent it", tools_path, class: "btn btn-primary my-3"%>
+    <div>
+      <% if policy(@tool).edit? %>
+        <%= link_to 'Edit', edit_tool_path(@tool), class:"btn btn-outline-dark" %>
+      <% end %>
+      <% if policy(@tool).destroy? %>
+        <%= link_to 'Delete', @tool, class:"btn btn-outline-dark", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+    <%= link_to "Back to equipment", tools_path, class: "btn btn-outline-dark my-3"%>
+
   </div>
 </div>
