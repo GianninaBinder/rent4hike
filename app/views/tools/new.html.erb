@@ -5,7 +5,7 @@
         <h3 class="my-2"> Add new equipment</h3>
         <%= simple_form_for [ @tool ] do |f| %>
           <%= f.input :name %>
-           <%= f.input :category, collection: ["Accessoires", "Backpacks", "Clothing", "Footwear", "Sleeping bags", "Tents"]%>
+          <%= f.input :category, collection: ["Accessoires", "Backpacks", "Clothing", "Footwear", "Sleeping bags", "Tents"]%>
           <%= f.input :description %>
           <%= f.input :price %>
           <%= f.input :photo, as: :file %>
