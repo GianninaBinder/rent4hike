@@ -3,7 +3,7 @@ class ToolsController < ApplicationController
 
   def index
     if params[:query].present?
-      @tools = policy_scope(Tool).where(category: params[:query])
+      @tools = policy_scope(Tool).where(category: params[:query].capitalize)
     else
       @tools = policy_scope(Tool).all
     end
