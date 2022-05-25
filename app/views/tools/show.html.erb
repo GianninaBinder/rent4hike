@@ -6,7 +6,9 @@
       <p><%= @tool.category %></p>
       <p>CHF: <%= @tool.price %></p>
       <p><%= @tool.user.email %></p>
-      <%= cl_image_tag @tool.photo.key %>
+      <% if !@tool.photo.key.nil? %>
+        <%=cl_image_tag tool.photo.key, width: 300, crop: :fill %>
+      <%end%>
 
       <div>
         <%= link_to "Back to equipment", tools_path, class: "btn btn-primary my-3"%>
