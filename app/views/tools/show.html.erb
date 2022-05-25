@@ -7,7 +7,7 @@
       <p>CHF: <%= @tool.price %></p>
       <p><%= @tool.user.email %></p>
       <% if !@tool.photo.key.nil? %>
-        <%=cl_image_tag tool.photo.key, width: 300, crop: :fill %>
+        <%=cl_image_tag @tool.photo.key, width: 300, crop: :fill %>
       <%end%>
 
       <div>
