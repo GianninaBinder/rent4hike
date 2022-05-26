@@ -12,7 +12,7 @@
       <p id="price">Price: <%= @tool.price %>CHF</p>
       <p><strong>Owner: </strong><%= @tool.user.email %></p>
 
-      <%= link_to "Rent it", tools_path, class: "btn btn-primary my-3"%>
+      <%= link_to "Rent it", new_tool_booking_path(@tool), class: "btn btn-primary my-3"%>
       <div>
         <% if policy(@tool).edit? %>
           <%= link_to 'Edit', edit_tool_path(@tool), class:"btn btn-outline-dark" %>
