@@ -4,6 +4,8 @@ class ToolsController < ApplicationController
   def index
     if params[:query].present?
       @tools = policy_scope(Tool).where("category ILIKE ?", "%#{params[:query]}%")
+    elsif params[:category].present?
+        @tools = policy_scope(Tool).where(category: params[:category])
     else
       @tools = policy_scope(Tool).all
     end
