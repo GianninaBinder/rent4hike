@@ -13,12 +13,13 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.cards {
-  grid-gap: 16px;
-  height: 400px;
+.card-category {
+  box-sizing: border-box;
+  height: 200px;
+  margin: 8px;
 }
 
-.cards a {
+.card-category a {
   text-decoration: none;
   color: white;
 }
