@@ -1,7 +1,7 @@
 
 Equipment: <%= tool.name %>
 Price: <%= tool.price %>
-<%= cl_image_tag tool.photo.key, height: 150, width: 150 %>
+<%= cl_image_tag @tool.photos[0].key, height: 150, width: 150 %>
 
 <%= simple_form_for [@tool, @booking] do |f| %>
   <%= f.error_notification %>
