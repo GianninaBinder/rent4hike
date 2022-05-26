@@ -17,12 +17,12 @@
 
 <p>
   <strong>Tool:</strong>
-  <%= @booking.tool_id %>
+  <%= @booking.tool.name %>
 </p>
 
 <p>
   <strong>Price total:</strong>
-  <%= @booking.price_total %>
+  CHF<%= @booking.price_total %>
 </p>
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
