@@ -1,18 +1,33 @@
-<div style="background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),url(https://www.galeria-reisen.de/magazin/wp-content/uploads/2021/01/KanadaAdobeStock_295448049.jpeg);">
-  <div class="card-product">
-    <% if !@tool.photo.key.nil? %>
-      <%=cl_image_tag @tool.photo.key %>
-    <%end%>
-    <div class="card-product-infos">
-      <div>
-        <h2><%= @tool.name.capitalize %></h2>
-      </div>
-      <p><%= @tool.description %></p>
-      <p><strong>Category: </strong><%= @tool.category %></p>
-      <p id="price">Price: <%= @tool.price %>CHF</p>
-      <p><strong>Owner: </strong><%= @tool.user.email %></p>
+<div class="card-product container">
 
-      <%= link_to "Rent it", new_tool_booking_path(@tool), class: "btn btn-primary my-3"%>
+    <div class="d-flex justify-content-evenly align-items-center image-container">
+
+      <% if !@tool.photos.nil? %>
+
+        <%= cl_image_tag @tool.photos[0].key, class: "big-image" %>
+
+        <div class="d-flex flex-wrap justify-content-evenly flex-grow-1 align-items-center small-image">
+          <% @tool.photos[1..4].each do |photo| %>
+            <%= cl_image_tag photo.key %>
+          <% end %>
+        </div>
+
+      <%end%>
+
+      <div class="infos-card">
+        <p id="price">Price: <%= @tool.price %>CHF / day</p>
+
+        <div class="mb-2">
+          <h2><%= @tool.name.capitalize %></h2>
+        </div>
+        <p class="description mb-4"><%= @tool.description %></p>
+        <p>Owner: <%= @tool.user.email %></p>
+        <%= link_to "Rent it", new_tool_booking_path(@tool), class: "btn btn-primary my-3"%>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center my-5 width-100">
+
       <div>
         <% if policy(@tool).edit? %>
           <%= link_to 'Edit', edit_tool_path(@tool), class:"btn btn-outline-dark" %>
@@ -21,7 +36,11 @@
           <%= link_to 'Delete', @tool, class:"btn btn-outline-dark", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>
+
+      <div>
       <%= link_to "Back to equipment", tools_path, class: "btn btn-outline-dark my-3"%>
+      </div>
+
     </div>
-  </div>
+
 </div>

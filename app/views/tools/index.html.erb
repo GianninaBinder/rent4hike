@@ -17,9 +17,9 @@
     <% @tools.each do |tool|%>
       <div class="col-lg-4 col-md-6 col-xs-8">
         <div class="card-trip">
-          <% if !tool.photo.key.nil? %>
-            <%=cl_image_tag tool.photo.key %>
-          <%end%>
+
+          <%= cl_image_tag tool.photos[0].key %>
+
           <%= link_to tool_path(tool), class:"text-decoration-none link" do %>
             <div class="card-trip-infos">
               <div>
