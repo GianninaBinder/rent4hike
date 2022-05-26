@@ -1,10 +1,10 @@
-class ToolPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   def index?
     true
   end
 
   def show?
-    true
+    record.user == user
   end
 
   def create?
@@ -30,7 +30,7 @@ class ToolPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 end
