@@ -1,23 +1,26 @@
-<div style="background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),url(https://www.galeria-reisen.de/magazin/wp-content/uploads/2021/01/KanadaAdobeStock_295448049.jpeg);">
-  <div class="container my-2 bg-white">
-    <br>
-    <h2 align="center"><strong>Check our equipment</strong></h2>
+<div class="container bg-white">
+  <br>
+  <h2 class="text-center fw-bold">Check our equipment</h2>
 
-    <%= form_tag tools_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      placeholder: "Filter by category"
-      %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+  <%= form_tag tools_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    placeholder: "Filter by category",
+    class: "my-4"
+    %>
+  <%= submit_tag "Search", class: "btn btn-primary btn-sm mx-2" %>
+  <% end %>
 
-    <div class="row">
-      <% @tools.each do |tool|%>
-        <div class="col-lg-4 col-md-4 col-sm-12 card-trip m-3">
-            <% if !tool.photo.key.nil? %>
-              <%=cl_image_tag tool.photo.key %>
-            <%end%>
-            <%= link_to tool_path(tool), class:"text-decoration-none link" do %>
+
+  <div class="row g-4">
+
+    <% @tools.each do |tool|%>
+      <div class="col-lg-4 col-md-6 col-xs-8">
+        <div class="card-trip">
+          <% if !tool.photo.key.nil? %>
+            <%=cl_image_tag tool.photo.key %>
+          <%end%>
+          <%= link_to tool_path(tool), class:"text-decoration-none link" do %>
             <div class="card-trip-infos">
               <div>
                 <h2><%=tool.name.capitalize %></h2>
@@ -27,16 +30,16 @@
             </div>
           <% end %>
         </div>
-      <%end%>
-    </div>
+      </div>
+    <%end%>
+  </div>
 
-    <div>
+  <div>
+    <br>
+    <% if policy(Tool).create? %>
+      <%= link_to "Add equipment", new_tool_path, class: "btn-ghost link" %>
       <br>
-      <% if policy(Tool).create? %>
-        <%= link_to "Add equipment", new_tool_path, class: "btn-ghost link" %>
-        <br>
-        <br>
-      <% end %>
-    </div>
+      <br>
+    <% end %>
   </div>
 </div>
