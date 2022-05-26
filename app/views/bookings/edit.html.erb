@@ -1,6 +1,8 @@
-<h1>Editing Booking</h1>
+<div class="p-3 bg-white">
+  <h1>Editing rental</h1>
 
-<%= render 'form', booking: @booking, tool: @booking.tool %>
+  <%= render 'form', booking: @booking, tool: @booking.tool %>
 
-<%= link_to 'Show', @booking %> |
-<%= link_to 'Back', bookings_path %>
+  <%= link_to 'Show', @booking, class:"btn btn-outline-dark" %>
+  <%= link_to 'Back to my rentals', bookings_path, class:"btn btn-outline-dark" %>
+</div>

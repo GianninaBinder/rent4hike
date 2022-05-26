@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="p-3 bg-white">
+  <p id="notice"><%= notice %></p>
+  <h1>My rental</h1>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @booking.start_date %>
-</p>
+  <p>
+    <strong>Start date:</strong>
+    <%= @booking.start_date %>
+  </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @booking.end_date %>
-</p>
+  <p>
+    <strong>End date:</strong>
+    <%= @booking.end_date %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @booking.user_id %>
-</p>
+  <p>
+    <strong>Equipment:</strong>
+    <%= @booking.tool.name %>
+  </p>
 
-<p>
-  <strong>Tool:</strong>
-  <%= @booking.tool.name %>
-</p>
+  <p>
+    <strong>Total price:</strong>
+    CHF<%= @booking.price_total %>
+  </p>
 
-<p>
-  <strong>Price total:</strong>
-  CHF<%= @booking.price_total %>
-</p>
-
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+  <%= link_to 'Edit', edit_booking_path(@booking), class:"btn btn-outline-dark" %>
+  <%= link_to 'Back to my rentals', bookings_path, class:"btn btn-outline-dark" %>
+</div>
