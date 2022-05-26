@@ -1,21 +1,26 @@
 <div class="card-product container">
 
-    <div class="d-flex image-container pt-4">
+    <div class="d-flex justify-content-evenly align-items-center image-container">
+
       <% if !@tool.photos.nil? %>
+
         <%= cl_image_tag @tool.photos[0].key, class: "big-image" %>
+
         <div class="d-flex flex-wrap justify-content-evenly flex-grow-1 align-items-center small-image">
           <% @tool.photos[1..4].each do |photo| %>
             <%= cl_image_tag photo.key %>
           <% end %>
         </div>
+
       <%end%>
+
       <div class="infos-card">
         <p id="price">Price: <%= @tool.price %>CHF / day</p>
 
-        <div>
+        <div class="mb-2">
           <h2><%= @tool.name.capitalize %></h2>
         </div>
-        <p class="description"><%= @tool.description %></p>
+        <p class="description mb-4"><%= @tool.description %></p>
         <p>Owner: <%= @tool.user.email %></p>
         <%= link_to "Rent it", tools_path, class: "btn btn-primary my-3"%>
       </div>
