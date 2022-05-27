@@ -1,20 +1,25 @@
 
 <p>Equipment: <%= tool.name %></p>
 <p>Price: <%= tool.price %>CHF per day</p>
-<% if tool.photos.any? %>
-  <%= cl_image_tag tool.photos[0].key, height: 150, width: 150 %>
-<%end%>
 
-<%= simple_form_for [tool, booking] do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="d-flex align-items-center">
+  <% if tool.photos.any? %>
+    <%= cl_image_tag tool.photos[0].key, height: 200, :crop => :fill %>
+  <%end%>
 
-  <div class="form-inputs ">
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+
+  <%= simple_form_for [tool, booking] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs m-3">
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+    </div>
+
   </div>
 
   <div>
-    <%= f.button :submit, 'Submit', class: "btn btn-primary my-3" %>
+    <%= f.button :submit, 'Confirm', class: "btn btn-primary my-3" %>
   </div>
 <% end %>
