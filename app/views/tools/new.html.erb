@@ -8,7 +8,7 @@
           <%= f.input :category, collection: ["Accessoires", "Backpacks", "Clothing", "Footwear", "Sleeping bags", "Tents"]%>
           <%= f.input :description %>
           <%= f.input :price %>
-          <%= f.input :photo, as: :file %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.submit "Add equipment", class: "btn btn-primary" %>
         <% end %>
         <div class="my-3">

@@ -1,7 +1,9 @@
 
-<%= cl_image_tag tool.photo.key, height: 150, width: 200, class: "my-3" %>
 <p>Equipment: <%= tool.name %></p>
 <p>Price: <%= tool.price %>CHF per day</p>
+<% if @tool.photos.any? %>
+  <%= cl_image_tag @tool.photos[0].key, height: 150, width: 150 %>
+<%end%>
 
 <%= simple_form_for [@tool, @booking] do |f| %>
   <%= f.error_notification %>
