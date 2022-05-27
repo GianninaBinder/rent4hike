@@ -3,14 +3,11 @@
   <h2 class="text-center fw-bold">Check our equipment</h2>
 
   <%= form_tag tools_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    placeholder: "Filter by category",
-    class: "my-4"
-    %>
-  <%= submit_tag "Search", class: "btn btn-primary btn-sm mx-2" %>
+  <%= select_tag "category", options_for_select(
+    ["Accessoires", "Backpacks", "Clothing", "Footwear", "Sleeping bags", "Tents"], params[:category]),
+    class:"select2" %>
+    <%= submit_tag "Search", class: "btn btn-primary btn-sm mx-2" %>
   <% end %>
-
 
   <div class="row g-4">
 
