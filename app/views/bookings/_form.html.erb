@@ -1,11 +1,11 @@
 
 <p>Equipment: <%= tool.name %></p>
 <p>Price: <%= tool.price %>CHF per day</p>
-<% if @tool.photos.any? %>
-  <%= cl_image_tag @tool.photos[0].key, height: 150, width: 150 %>
+<% if tool.photos.any? %>
+  <%= cl_image_tag tool.photos[0].key, height: 150, width: 150 %>
 <%end%>
 
-<%= simple_form_for [@tool, @booking] do |f| %>
+<%= simple_form_for [tool, booking] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
