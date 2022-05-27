@@ -2,7 +2,7 @@
   <div class="container bg-white">
     <br>
     <h2 class="text-center fw-bold">Check our equipment</h2>
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between m-3">
       <%= form_tag tools_path, method: :get do %>
         <%= select_tag "category", options_for_select(
           ["Accessoires", "Backpacks", "Clothing", "Footwear", "Sleeping bags", "Tents"], params[:category]),
@@ -16,7 +16,7 @@
         <% end %>
       </div>
     </div>
-    <div class="row g-4">
+    <div class="row g-4 mx-2">
       <% @tools.each do |tool|%>
         <div class="col-lg-4 col-md-6 col-xs-8">
           <div class="card-trip">
