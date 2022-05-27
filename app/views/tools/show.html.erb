@@ -2,7 +2,7 @@
 
     <div class="d-flex justify-content-evenly align-items-center image-container">
 
-      <% if !@tool.photos.nil? %>
+      <% if @tool.photos.any? %>
 
         <%= cl_image_tag @tool.photos[0].key, class: "big-image" %>
 
