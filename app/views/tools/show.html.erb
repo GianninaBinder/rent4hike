@@ -3,15 +3,26 @@
     <div class="d-flex justify-content-evenly align-items-center image-container">
 
       <% if @tool.photos.any? %>
+        <% if @tool.photos.length == 1 %>
+          <%= cl_image_tag @tool.photos[0].key, class: "big-image-full" %>
+        <% else %>
 
         <%= cl_image_tag @tool.photos[0].key, class: "big-image" %>
 
-        <div class="d-flex flex-wrap justify-content-evenly flex-grow-1 align-items-center small-image">
-          <% @tool.photos[1..4].each do |photo| %>
-            <%= cl_image_tag photo.key %>
-          <% end %>
-        </div>
-
+          <div class="d-flex flex-wrap justify-content-evenly flex-grow-1 align-items-center">
+            <% if @tool.photos.length >= 4 %>
+              <% @tool.photos[1..4].each do |photo| %>
+                <%= cl_image_tag photo.key, class: "small-image" %>
+              <% end %>
+            <% elsif @tool.photos.length == 3 %>
+              <% @tool.photos[1..2].each do |photo| %>
+                <%= cl_image_tag photo.key, class: "small-2" %>
+              <% end %>
+            <% elsif @tool.photos.length == 2 %>
+              <%= cl_image_tag @tool.photos[1].key, class: "big-image" %>
+            <% end %>
+          </div>
+        <% end %>
       <%end%>
 
       <div class="infos-card">
