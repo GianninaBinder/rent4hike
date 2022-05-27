@@ -1,36 +1,40 @@
-<div class="p-3 bg-white">
-  <p id="notice"><%= notice %></p>
+<div style="background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),url(https://www.galeria-reisen.de/magazin/wp-content/uploads/2021/01/KanadaAdobeStock_295448049.jpeg);">
+  <div class="container">
+    <div class="p-4 bg-white">
+      <p id="notice"><%= notice %></p>
 
-  <h1>My rentals</h1>
+      <h1>My rentals</h1>
 
-  <table class="table align-middle">
-    <thead>
-      <tr>
-        <th>Start date</th>
-        <th>End date</th>
-        <th>Equipment</th>
-        <th>Total price</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% if policy(@bookings).index? %>
-        <% @bookings.each do |booking| %>
+      <table class="table align-middle">
+        <thead>
           <tr>
-            <td><%= booking.start_date %></td>
-            <td><%= booking.end_date %></td>
-            <td><%= booking.tool.name %></td>
-            <td><%= booking.price_total %> CHF</td>
-            <td><%= link_to 'Show', booking, class: "btn btn-primary" %></td>
-            <td><%= link_to 'Edit', edit_booking_path(booking), class: "btn btn-primary" %></td>
-            <td><%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Equipment</th>
+            <th>Total price</th>
+            <th colspan="3"></th>
           </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
+        </thead>
 
-  <%= link_to 'Go to equipment', tools_path, class:"btn btn-outline-dark" %>
+        <tbody>
+          <% if policy(@bookings).index? %>
+            <% @bookings.each do |booking| %>
+              <tr>
+                <td><%= booking.start_date %></td>
+                <td><%= booking.end_date %></td>
+                <td><%= booking.tool.name %></td>
+                <td><%= booking.price_total %> CHF</td>
+                <td><%= link_to 'Show', booking, class: "btn btn-primary" %></td>
+                <td><%= link_to 'Edit', edit_booking_path(booking), class: "btn btn-primary" %></td>
+                <td><%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
 
+      <%= link_to 'Go to equipment', tools_path, class:"btn btn-outline-dark" %>
+
+    </div>
+  </div>
 </div>
