@@ -18,7 +18,9 @@
       <div class="col-lg-4 col-md-6 col-xs-8">
         <div class="card-trip">
 
-          <%= cl_image_tag tool.photos[0].key %>
+          <% if tool.photos.any? %>
+            <%= cl_image_tag tool.photos[0].key %>
+          <%end%>
 
           <%= link_to tool_path(tool), class:"text-decoration-none link" do %>
             <div class="card-trip-infos">
