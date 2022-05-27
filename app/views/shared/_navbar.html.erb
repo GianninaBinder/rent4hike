@@ -15,13 +15,11 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My rentals", "#", class: "nav-link" %>
+            <%= link_to "My rentals", bookings_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://st4.depositphotos.com/5045705/19653/v/450/depositphotos_196539098-stock-illustration-cute-cartoon-marmot-looking-hole.jpg", class: "avatar dropdown-toggle border", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Update a reservation", "#", class: "dropdown-item" %>
-              <%= link_to "Delete a reservation", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

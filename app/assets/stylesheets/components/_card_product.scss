@@ -23,20 +23,32 @@
 }
 
 .infos-card .description {
-  overflow:auto;
+  overflow:hidden;
   height: 300px;
 }
 
-.card-product .small-image img {
+.card-product .small-image {
   height: 250px;
   width: 250px;
   object-fit: cover;
   padding: 0 0 8px 8px;
 }
 
+.card-product .small-2 {
+  height: 300px;
+  width: 450px;
+  object-fit: cover;
+  padding: 0 0 8px 8px;
+}
 .card-product .big-image {
   height: 700px;
   max-width: 450px;
+  object-fit: cover;
+}
+
+.card-product .big-image-full {
+  height: 700px;
+  max-width: 900px;
   object-fit: cover;
 }
 
